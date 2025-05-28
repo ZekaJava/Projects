@@ -74,7 +74,7 @@ export class LeagueListComponent implements OnInit, AfterViewInit {
     this.selectedSport = '';
   }
 
-  onCellClick(element: any, column: string) {
+  onCellClick() {
     this.leagueService.getSeasonBadges().subscribe((res) => {
       this.tableCellIsClicked = true;
       this.seasons = res.seasons;

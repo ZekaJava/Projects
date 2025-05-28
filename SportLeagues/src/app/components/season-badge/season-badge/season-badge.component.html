@@ -4,6 +4,11 @@
     <mat-card-title
       ><strong>Season {{ firstSeason.strSeason }}</strong></mat-card-title
     >
+    <mat-card-actions>
+      <button mat-icon-button (click)="removeBadge()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card-header>
 
   <img mat-card-image src="{{ firstSeason.strBadge }}" />

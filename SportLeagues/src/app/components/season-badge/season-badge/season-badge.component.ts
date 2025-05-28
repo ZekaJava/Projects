@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LeagueService } from '../../../services/league.service';
 import { SeasonBadge } from '../../../entities/season';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-season-badge',
-  imports: [MatCardModule],
+  imports: [MatCardModule, MatIconModule],
   templateUrl: './season-badge.component.html',
   styleUrl: './season-badge.component.scss',
 })
@@ -30,5 +31,9 @@ export class SeasonBadgeComponent implements OnInit {
       this.seasonBadgesArr = [...seasonBadgesObj.seasons];
       this.firstSeason = this.seasonBadgesArr[0];
     });
+  }
+
+  removeBadge() {
+    this.seasonBadgesObj.flag = false;
   }
 }
