@@ -1,0 +1,76 @@
+<div class="sport-leagues">
+  <div class="table-title">Sports Leagues</div>
+  <header>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Sreach</mat-label>
+        <input
+          #input
+          matInput
+          placeholder="Search by league"
+          (keyup)="onSearch($event)"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Filter by Sport</mat-label>
+        <mat-select
+          (selectionChange)="onChange($event)"
+          [value]="selectedSport"
+        >
+          @for (sport of sports; track sport) {
+          <mat-option [value]="sport">{{ sport }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button
+      class="reset-filter"
+      mat-stroked-button
+      (click)="resetFilters(input)"
+    >
+      Reset filters
+    </button>
+  </header>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="league">
+      <th mat-header-cell *matHeaderCellDef>League</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="onCellClick(element, 'league')"
+      >
+        {{ element.strLeague }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sport">
+      <th mat-header-cell *matHeaderCellDef>Sport</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="onCellClick(element, 'sport')"
+      >
+        {{ element.strSport }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="leagueAlternate">
+      <th mat-header-cell *matHeaderCellDef>League Alternate</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="onCellClick(element, 'leagueAlternate')"
+      >
+        {{ element.strLeagueAlternate }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+  </mat-paginator>
+</div>

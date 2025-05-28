@@ -1,0 +1,54 @@
+.sport-leagues {
+  margin: 10px;
+  box-shadow: 0px 0px 36px 15px rgba(0, 0, 0, 0.28);
+  border-radius: 5px;
+  background-color: #e3f4f7;
+}
+
+.table-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+@media screen and (max-width: 560px) {
+  header {
+    display: block;
+  }
+}
+
+table {
+  min-width: 100%;
+  background-color: rgb(20 214 242);
+  border: 1px solid rgb(91, 91, 91);
+  border-radius: 2px;
+}
+
+.mat-mdc-header-row {
+  font-size: 16px;
+}
+
+.mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-form-field {
+  margin-top: 15px;
+  border-radius: 5px;
+  width: 180px;
+}
+
+.mat-mdc-paginator {
+  background-color: #e3f4f7;
+  border-radius: 5px;
+}
+
+.reset-filter {
+  margin-top: 20px;
+}
